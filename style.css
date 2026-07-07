@@ -128,6 +128,35 @@ main{ flex:1; }
 .hero p.summary{ max-width:560px; color:var(--ink-dim); font-size:1.02rem; }
 .hero-actions{ margin-top:28px; display:flex; gap:14px; flex-wrap:wrap; }
 
+.hero-grid{
+  display:grid;
+  grid-template-columns: 1fr auto;
+  gap:36px;
+  align-items:center;
+}
+.hero-photo{
+  justify-self:end;
+}
+.hero-photo img{
+  width:260px;
+  height:260px;
+  object-fit:cover;
+  object-position:top center;
+  border-radius:50%;
+  border:3px solid var(--teal);
+  padding:5px;
+  background:var(--bg);
+  display:block;
+}
+@media (max-width: 640px){
+  .hero-grid{
+    grid-template-columns: 1fr;
+    text-align:left;
+  }
+  .hero-photo{ justify-self:start; order:-1; margin-bottom:8px; }
+  .hero-photo img{ width:180px; height:180px; }
+}
+
 .btn{
   font-family:'IBM Plex Mono', monospace;
   font-size:0.82rem;
