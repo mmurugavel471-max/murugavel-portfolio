@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Murugavel — Contact</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="grid-backdrop"></div>
+
+<header>
+  <div class="nav-inner">
+    <span class="nav-mark"><a href="index.html">MURUGAVEL / 001</a></span>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="experience.html">Experience</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="page-head">
+    <span class="eyebrow">04 / Contact</span>
+    <h1>Get in touch</h1>
+    <p>The fastest ways to reach me, or use the form below.</p>
+  </div>
+
+  <section>
+    <!-- EDIT: replace with your real contact details -->
+    <div class="contact-card">
+      <div class="contact-item"><span>Email</span><a href="mailto:you@example.com">you@example.com</a></div>
+      <div class="contact-item"><span>Phone</span>+91 00000 00000</div>
+      <div class="contact-item"><span>LinkedIn</span><a href="#">linkedin.com/in/yourname</a></div>
+      <div class="contact-item"><span>GitHub</span><a href="#">github.com/yourname</a></div>
+      <div class="contact-item"><span>Location</span>Tamil Nadu, India</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <span class="eyebrow">Message</span>
+      <h2>Send me a note</h2>
+    </div>
+
+    <!--
+      NOTE: This form has no backend — it will not actually send email on a static
+      host like GitHub Pages/Vercel unless you connect it to a form service
+      (e.g. Formspree, Getform, or a simple serverless function).
+      The "mailto:" fallback below opens the user's email client instead.
+    -->
+    <form class="contact-form" action="mailto:you@example.com" method="post" enctype="text/plain">
+      <div class="field">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="field">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required></textarea>
+      </div>
+      <button type="submit" class="submit-btn">Send message</button>
+      <p class="form-note">
+        This opens your default email app. For a real inline form, connect this
+        to a free service like Formspree and swap the form's action URL.
+      </p>
+    </form>
+  </section>
+
+</main>
+
+<footer>
+  © 2026 Murugavel — built as a static multi-page profile site
+</footer>
+
+</body>
+</html>
