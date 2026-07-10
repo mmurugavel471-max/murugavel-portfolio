@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Murugavel — Code</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="chatbot.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+<style>
+  .code-tabs{ display:flex; flex-wrap:wrap; gap:8px; margin-top:24px; margin-bottom:18px; }
+  .code-tab-btn{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.8rem;
+    padding:8px 16px;
+    border-radius:6px;
+    border:1px solid var(--line);
+    background:#fff;
+    color:var(--ink-dim);
+    cursor:pointer;
+  }
+  .code-tab-btn:hover{ border-color:var(--teal); color:var(--teal); }
+  .code-tab-btn.active{ background:var(--amber); border-color:var(--amber); color:#fff; }
+
+  .code-panel{ display:none; }
+  .code-panel.active{ display:block; }
+
+  .code-box{
+    position:relative;
+    border-radius:10px;
+    overflow:hidden;
+    border:1px solid var(--line);
+    box-shadow: 0 4px 20px rgba(46,155,240,0.08);
+  }
+  .code-box-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:#0B0F14;
+    padding:10px 14px;
+  }
+  .code-box-title{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    color:#B7C4D0;
+  }
+  .copy-btn{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    padding:5px 12px;
+    border-radius:5px;
+    border:1px solid #2A323C;
+    background:#141B22;
+    color:#B7C4D0;
+    cursor:pointer;
+  }
+  .copy-btn:hover{ border-color:var(--teal); color:var(--teal); }
+  .copy-btn.copied{ border-color:#3FA796; color:#3FA796; }
+
+  pre{ margin:0 !important; }
+  pre code.hljs{
+    padding:20px !important;
+    font-size:0.86rem !important;
+    line-height:1.6 !important;
+    font-family:'IBM Plex Mono', monospace !important;
+    background:#161B22 !important;
+  }
+
+  .snippet-desc{ color:var(--ink-dim); font-size:0.92rem; margin-bottom:16px; max-width:620px; }
+</style>
+</head>
+<body>
+
+<div class="grid-backdrop"></div>
+
+<header>
+  <div class="nav-inner">
+    <span class="nav-mark"><a href="index.html">MURUGAVEL / 001</a></span>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="experience.html">Experience</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="code.html" class="active">Code</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="page-head">
+    <span class="eyebrow">05 / Code</span>
+    <h1>Live code showcase</h1>
+    <p>
+      A few real snippets across the stack — frontend, backend, and database.
+      <!-- EDIT: swap these snippets for your own actual code -->
+    </p>
+  </div>
+
+  <section>
+    <div class="code-tabs" id="codeTabs">
+      <button class="code-tab-btn active" data-target="tab-frontend">Frontend (JS)</button>
+      <button class="code-tab-btn" data-target="tab-backend">Backend (Node/Express)</button>
+      <button class="code-tab-btn" data-target="tab-database">Database (SQL)</button>
+      <button class="code-tab-btn" data-target="tab-python">Python</button>
+    </div>
+
+    <!-- EDIT: replace each snippet below with your own real code -->
+
+    <div class="code-panel active" id="tab-frontend">
+      <p class="snippet-desc">Example: a simple debounce utility used to limit how often a function runs (e.g. on search input).</p>
+      <div class="code-box">
+        <div class="code-box-header">
+          <span class="code-box-title">debounce.js</span>
+          <button class="copy-btn" data-copy="frontend">Copy</button>
+        </div>
+        <pre><code class="language-javascript" id="frontend">function debounce(fn, delay = 300) {
+  let timer;
+  return function (...args) {
+    clearTimeout(timer);
+    timer = setTimeout(() => fn.apply(this, args), delay);
+  };
+}
+
+const handleSearch = debounce((query) => {
+  console.log("Searching for:", query);
+  // fetchResults(query);
+}, 400);
+
+searchInput.addEventListener("input", (e) => {
+  handleSearch(e.target.value);
+});</code></pre>
+      </div>
+    </div>
+
+    <div class="code-panel" id="tab-backend">
+      <p class="snippet-desc">Example: a basic Express.js REST route with error handling.</p>
+      <div class="code-box">
+        <div class="code-box-header">
+          <span class="code-box-title">server.js</span>
+          <button class="copy-btn" data-copy="backend">Copy</button>
+        </div>
+        <pre><code class="language-javascript" id="backend">const express = require("express");
+const router = express.Router();
+
+router.get("/api/users/:id", async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id);
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+    res.json(user);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Server error" });
+  }
+});
+
+module.exports = router;</code></pre>
+      </div>
+    </div>
+
+    <div class="code-panel" id="tab-database">
+      <p class="snippet-desc">Example: a query joining two tables with basic filtering.</p>
+      <div class="code-box">
+        <div class="code-box-header">
+          <span class="code-box-title">query.sql</span>
+          <button class="copy-btn" data-copy="database">Copy</button>
+        </div>
+        <pre><code class="language-sql" id="database">SELECT
+  orders.id,
+  users.name,
+  orders.total,
+  orders.created_at
+FROM orders
+JOIN users ON users.id = orders.user_id
+WHERE orders.status = 'completed'
+  AND orders.created_at >= NOW() - INTERVAL '30 days'
+ORDER BY orders.created_at DESC
+LIMIT 20;</code></pre>
+      </div>
+    </div>
+
+    <div class="code-panel" id="tab-python">
+      <p class="snippet-desc">Example: a small utility function with type hints.</p>
+      <div class="code-box">
+        <div class="code-box-header">
+          <span class="code-box-title">utils.py</span>
+          <button class="copy-btn" data-copy="python">Copy</button>
+        </div>
+        <pre><code class="language-python" id="python">from typing import List
+
+def chunk_list(items: List[int], size: int) -> List[List[int]]:
+    """Split a list into chunks of a given size."""
+    return [items[i:i + size] for i in range(0, len(items), size)]
+
+data = list(range(1, 11))
+print(chunk_list(data, 3))
+# [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10]]</code></pre>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  © 2026 Murugavel — built as a static multi-page profile site
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/javascript.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/sql.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (window.hljs) hljs.highlightAll();
+
+    var tabs = document.querySelectorAll(".code-tab-btn");
+    tabs.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        tabs.forEach(function (b) { b.classList.remove("active"); });
+        document.querySelectorAll(".code-panel").forEach(function (p) { p.classList.remove("active"); });
+        btn.classList.add("active");
+        document.getElementById(btn.dataset.target).classList.add("active");
+      });
+    });
+
+    document.querySelectorAll(".copy-btn").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var codeEl = document.getElementById(btn.dataset.copy);
+        var text = codeEl ? codeEl.textContent : "";
+        navigator.clipboard.writeText(text).then(function () {
+          btn.textContent = "Copied!";
+          btn.classList.add("copied");
+          setTimeout(function () {
+            btn.textContent = "Copy";
+            btn.classList.remove("copied");
+          }, 1500);
+        });
+      });
+    });
+  });
+</script>
+<script src="chatbot.js"></script>
+</body>
+</html>

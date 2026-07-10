@@ -1,0 +1,27 @@
+<svg viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Responsive website preview across devices">
+  <rect x="0" y="0" width="400" height="260" fill="#F1F8FE" rx="10"/>
+
+  <!-- desktop -->
+  <rect x="30" y="40" width="230" height="150" rx="6" fill="#FFFFFF" stroke="#D7E7F6" stroke-width="2"/>
+  <rect x="30" y="40" width="230" height="18" rx="6" fill="#0B0F14"/>
+  <rect x="30" y="52" width="230" height="8" fill="#0B0F14"/>
+  <circle cx="42" cy="49" r="3" fill="#2E9BF0"/>
+  <circle cx="52" cy="49" r="3" fill="#FFFFFF" opacity="0.5"/>
+
+  <rect x="46" y="72" width="90" height="10" rx="2" fill="#2E9BF0"/>
+  <rect x="46" y="90" width="140" height="7" rx="2" fill="#5B6B7A"/>
+  <rect x="46" y="103" width="110" height="7" rx="2" fill="#5B6B7A"/>
+  <rect x="46" y="122" width="60" height="20" rx="4" fill="#E0A94D"/>
+  <rect x="150" y="90" width="90" height="70" rx="4" fill="#F1F8FE" stroke="#D7E7F6"/>
+
+  <rect x="120" y="182" width="50" height="8" rx="2" fill="#B7C4D0"/>
+
+  <!-- mobile -->
+  <rect x="290" y="60" width="80" height="150" rx="12" fill="#FFFFFF" stroke="#0B0F14" stroke-width="2"/>
+  <rect x="298" y="76" width="64" height="14" rx="3" fill="#2E9BF0"/>
+  <rect x="298" y="96" width="64" height="8" rx="2" fill="#5B6B7A"/>
+  <rect x="298" y="108" width="50" height="8" rx="2" fill="#5B6B7A"/>
+  <rect x="298" y="126" width="64" height="40" rx="4" fill="#F1F8FE" stroke="#D7E7F6"/>
+  <rect x="298" y="176" width="64" height="16" rx="4" fill="#E0A94D"/>
+  <circle cx="330" cy="200" r="4" fill="#D7E7F6"/>
+</svg>

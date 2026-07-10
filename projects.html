@@ -6,8 +6,9 @@
 <title>Murugavel — Projects</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="chatbot.css">
 </head>
 <body>
 
@@ -21,6 +22,7 @@
       <li><a href="about.html">About</a></li>
       <li><a href="experience.html">Experience</a></li>
       <li><a href="projects.html" class="active">Projects</a></li>
+      <li><a href="code.html">Code</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </div>
@@ -31,36 +33,162 @@
   <div class="page-head">
     <span class="eyebrow">03 / Projects</span>
     <h1>Things I've built</h1>
-    <p>A selection of projects — personal, academic, or professional.</p>
+    <p>Work across three areas — Google Ads campaigns, email templates, and responsive websites. 5 projects in each category.</p>
   </div>
 
   <section>
-    <!-- EDIT: replace with your real projects, add/remove cards as needed -->
+    <div class="code-tabs" id="projectTabs">
+      <button class="code-tab-btn active" data-target="tab-ads">Google Ads</button>
+      <button class="code-tab-btn" data-target="tab-email">Email Templates</button>
+      <button class="code-tab-btn" data-target="tab-web">Responsive Websites</button>
+    </div>
+
+    <div class="code-panel active" id="tab-ads">
     <div class="projects-grid">
       <div class="proj">
-        <h3>Project One</h3>
-        <div class="tags"><span>Tech 1</span><span>Tech 2</span></div>
-        <p>Short description of what this project does and what you used to build it.</p>
-        <a href="#">View project →</a>
+        <div class="proj-thumb"><img src="preview-ads.svg" alt="Google Ads campaign preview"></div>
+        <h3>Google Ads Project 1</h3>
+        <div class="tags"><span>Google Ads</span><span>PPC</span><span>Campaign</span></div>
+        <p>Short description of this ad campaign — goal, audience, and result (e.g. CTR, conversions).</p>
+        <div class="proj-links">
+          <a href="#" class="proj-live">View project →</a>
+        </div>
       </div>
       <div class="proj">
-        <h3>Project Two</h3>
-        <div class="tags"><span>Tech 1</span><span>Tech 2</span></div>
-        <p>Short description of what this project does and what you used to build it.</p>
-        <a href="#">View project →</a>
+        <div class="proj-thumb"><img src="preview-ads.svg" alt="Google Ads campaign preview"></div>
+        <h3>Google Ads Project 2</h3>
+        <div class="tags"><span>Google Ads</span><span>PPC</span><span>Campaign</span></div>
+        <p>Short description of this ad campaign — goal, audience, and result (e.g. CTR, conversions).</p>
+        <div class="proj-links">
+          <a href="#" class="proj-live">View project →</a>
+        </div>
       </div>
       <div class="proj">
-        <h3>Project Three</h3>
-        <div class="tags"><span>Tech 1</span><span>Tech 2</span></div>
-        <p>Short description of what this project does and what you used to build it.</p>
-        <a href="#">View project →</a>
+        <div class="proj-thumb"><img src="preview-ads.svg" alt="Google Ads campaign preview"></div>
+        <h3>Google Ads Project 3</h3>
+        <div class="tags"><span>Google Ads</span><span>PPC</span><span>Campaign</span></div>
+        <p>Short description of this ad campaign — goal, audience, and result (e.g. CTR, conversions).</p>
+        <div class="proj-links">
+          <a href="#" class="proj-live">View project →</a>
+        </div>
       </div>
       <div class="proj">
-        <h3>Project Four</h3>
-        <div class="tags"><span>Tech 1</span><span>Tech 2</span></div>
-        <p>Short description of what this project does and what you used to build it.</p>
-        <a href="#">View project →</a>
+        <div class="proj-thumb"><img src="preview-ads.svg" alt="Google Ads campaign preview"></div>
+        <h3>Google Ads Project 4</h3>
+        <div class="tags"><span>Google Ads</span><span>PPC</span><span>Campaign</span></div>
+        <p>Short description of this ad campaign — goal, audience, and result (e.g. CTR, conversions).</p>
+        <div class="proj-links">
+          <a href="#" class="proj-live">View project →</a>
+        </div>
       </div>
+      <div class="proj">
+        <div class="proj-thumb"><img src="preview-ads.svg" alt="Google Ads campaign preview"></div>
+        <h3>Google Ads Project 5</h3>
+        <div class="tags"><span>Google Ads</span><span>PPC</span><span>Campaign</span></div>
+        <p>Short description of this ad campaign — goal, audience, and result (e.g. CTR, conversions).</p>
+        <div class="proj-links">
+          <a href="#" class="proj-live">View project →</a>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="code-panel" id="tab-email">
+    <div class="projects-grid">
+      <div class="proj">
+        <div class="proj-thumb"><img src="preview-email.svg" alt="Email template preview"></div>
+        <h3>Email Templates Project 1</h3>
+        <div class="tags"><span>Email Design</span><span>HTML Email</span><span>Responsive</span></div>
+        <p>Short description of this email template — purpose (newsletter, promo, onboarding) and platform used.</p>
+        <div class="proj-links">
+          <a href="#" class="proj-live">View project →</a>
+        </div>
+      </div>
+      <div class="proj">
+        <div class="proj-thumb"><img src="preview-email.svg" alt="Email template preview"></div>
+        <h3>Email Templates Project 2</h3>
+        <div class="tags"><span>Email Design</span><span>HTML Email</span><span>Responsive</span></div>
+        <p>Short description of this email template — purpose (newsletter, promo, onboarding) and platform used.</p>
+        <div class="proj-links">
+          <a href="#" class="proj-live">View project →</a>
+        </div>
+      </div>
+      <div class="proj">
+        <div class="proj-thumb"><img src="preview-email.svg" alt="Email template preview"></div>
+        <h3>Email Templates Project 3</h3>
+        <div class="tags"><span>Email Design</span><span>HTML Email</span><span>Responsive</span></div>
+        <p>Short description of this email template — purpose (newsletter, promo, onboarding) and platform used.</p>
+        <div class="proj-links">
+          <a href="#" class="proj-live">View project →</a>
+        </div>
+      </div>
+      <div class="proj">
+        <div class="proj-thumb"><img src="preview-email.svg" alt="Email template preview"></div>
+        <h3>Email Templates Project 4</h3>
+        <div class="tags"><span>Email Design</span><span>HTML Email</span><span>Responsive</span></div>
+        <p>Short description of this email template — purpose (newsletter, promo, onboarding) and platform used.</p>
+        <div class="proj-links">
+          <a href="#" class="proj-live">View project →</a>
+        </div>
+      </div>
+      <div class="proj">
+        <div class="proj-thumb"><img src="preview-email.svg" alt="Email template preview"></div>
+        <h3>Email Templates Project 5</h3>
+        <div class="tags"><span>Email Design</span><span>HTML Email</span><span>Responsive</span></div>
+        <p>Short description of this email template — purpose (newsletter, promo, onboarding) and platform used.</p>
+        <div class="proj-links">
+          <a href="#" class="proj-live">View project →</a>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="code-panel" id="tab-web">
+    <div class="projects-grid">
+      <div class="proj">
+        <div class="proj-thumb"><img src="preview-website.svg" alt="Responsive website preview across devices"></div>
+        <h3>Responsive Websites Project 1</h3>
+        <div class="tags"><span>HTML/CSS</span><span>Responsive</span><span>UI Design</span></div>
+        <p>Short description of this website — purpose, tech used, and what makes it responsive.</p>
+        <div class="proj-links">
+          <a href="#" class="proj-live">View project →</a>
+        </div>
+      </div>
+      <div class="proj">
+        <div class="proj-thumb"><img src="preview-website.svg" alt="Responsive website preview across devices"></div>
+        <h3>Responsive Websites Project 2</h3>
+        <div class="tags"><span>HTML/CSS</span><span>Responsive</span><span>UI Design</span></div>
+        <p>Short description of this website — purpose, tech used, and what makes it responsive.</p>
+        <div class="proj-links">
+          <a href="#" class="proj-live">View project →</a>
+        </div>
+      </div>
+      <div class="proj">
+        <div class="proj-thumb"><img src="preview-website.svg" alt="Responsive website preview across devices"></div>
+        <h3>Responsive Websites Project 3</h3>
+        <div class="tags"><span>HTML/CSS</span><span>Responsive</span><span>UI Design</span></div>
+        <p>Short description of this website — purpose, tech used, and what makes it responsive.</p>
+        <div class="proj-links">
+          <a href="#" class="proj-live">View project →</a>
+        </div>
+      </div>
+      <div class="proj">
+        <div class="proj-thumb"><img src="preview-website.svg" alt="Responsive website preview across devices"></div>
+        <h3>Responsive Websites Project 4</h3>
+        <div class="tags"><span>HTML/CSS</span><span>Responsive</span><span>UI Design</span></div>
+        <p>Short description of this website — purpose, tech used, and what makes it responsive.</p>
+        <div class="proj-links">
+          <a href="#" class="proj-live">View project →</a>
+        </div>
+      </div>
+      <div class="proj">
+        <div class="proj-thumb"><img src="preview-website.svg" alt="Responsive website preview across devices"></div>
+        <h3>Responsive Websites Project 5</h3>
+        <div class="tags"><span>HTML/CSS</span><span>Responsive</span><span>UI Design</span></div>
+        <p>Short description of this website — purpose, tech used, and what makes it responsive.</p>
+        <div class="proj-links">
+          <a href="#" class="proj-live">View project →</a>
+        </div>
+      </div>
+    </div>
     </div>
   </section>
 
@@ -70,5 +198,19 @@
   © 2026 Murugavel — built as a static multi-page profile site
 </footer>
 
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var tabs = document.querySelectorAll("#projectTabs .code-tab-btn");
+    tabs.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        tabs.forEach(function (b) { b.classList.remove("active"); });
+        document.querySelectorAll(".code-panel").forEach(function (p) { p.classList.remove("active"); });
+        btn.classList.add("active");
+        document.getElementById(btn.dataset.target).classList.add("active");
+      });
+    });
+  });
+</script>
+<script src="chatbot.js"></script>
 </body>
 </html>

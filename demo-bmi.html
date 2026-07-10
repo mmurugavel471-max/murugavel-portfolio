@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BMI Calculator — Demo Project</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .demo-wrap{ max-width:440px; margin:60px auto; padding:0 20px; }
+  .demo-back{ font-family:'IBM Plex Mono', monospace; font-size:0.8rem; display:inline-block; margin-bottom:20px; }
+  .calc-card{
+    background:var(--bg-raised);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:26px;
+    box-shadow: 0 4px 20px rgba(46,155,240,0.08);
+  }
+  .calc-card h1{ font-size:1.4rem; margin-bottom:6px; }
+  .calc-card .sub{ color:var(--ink-dim); font-size:0.88rem; margin-bottom:22px; }
+  .calc-field{ margin-bottom:16px; }
+  .calc-field label{
+    display:block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.75rem;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--ink-dim);
+    margin-bottom:6px;
+  }
+  .calc-field input{
+    width:100%;
+    padding:10px 12px;
+    border:1px solid var(--line);
+    border-radius:6px;
+    font-family:'Poppins', sans-serif;
+    font-size:0.95rem;
+  }
+  .calc-field input:focus{ outline:2px solid var(--teal); outline-offset:1px; }
+  .calc-btn{
+    width:100%;
+    padding:11px;
+    background:var(--amber);
+    color:#fff;
+    border:none;
+    border-radius:6px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.85rem;
+    cursor:pointer;
+    margin-top:6px;
+  }
+  .calc-btn:hover{ background:var(--teal); }
+  .calc-result{
+    margin-top:20px;
+    padding:16px;
+    border-radius:8px;
+    background:#fff;
+    border:1px solid var(--line);
+    display:none;
+  }
+  .calc-result.show{ display:block; }
+  .calc-result .bmi-value{ font-size:1.8rem; font-weight:600; color:var(--amber); }
+  .calc-result .bmi-label{ font-family:'IBM Plex Mono', monospace; font-size:0.8rem; color:var(--ink-dim); margin-top:4px; }
+</style>
+</head>
+<body>
+
+<div class="grid-backdrop"></div>
+
+<div class="demo-wrap">
+  <a class="demo-back" href="projects.html">&larr; Back to projects</a>
+  <div class="calc-card">
+    <h1>BMI Calculator</h1>
+    <p class="sub">Enter your height and weight to calculate Body Mass Index.</p>
+
+    <div class="calc-field">
+      <label for="heightInput">Height (cm)</label>
+      <input type="number" id="heightInput" placeholder="e.g. 170">
+    </div>
+    <div class="calc-field">
+      <label for="weightInput">Weight (kg)</label>
+      <input type="number" id="weightInput" placeholder="e.g. 65">
+    </div>
+    <button class="calc-btn" id="calcBtn">Calculate BMI</button>
+
+    <div class="calc-result" id="resultBox">
+      <div class="bmi-value" id="bmiValue">--</div>
+      <div class="bmi-label" id="bmiLabel">--</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    var heightInput = document.getElementById("heightInput");
+    var weightInput = document.getElementById("weightInput");
+    var calcBtn = document.getElementById("calcBtn");
+    var resultBox = document.getElementById("resultBox");
+    var bmiValue = document.getElementById("bmiValue");
+    var bmiLabel = document.getElementById("bmiLabel");
+
+    function classify(bmi) {
+      if (bmi < 18.5) return "Underweight";
+      if (bmi < 25) return "Normal weight";
+      if (bmi < 30) return "Overweight";
+      return "Obese";
+    }
+
+    calcBtn.addEventListener("click", function () {
+      var h = parseFloat(heightInput.value);
+      var w = parseFloat(weightInput.value);
+      if (!h || !w || h <= 0 || w <= 0) {
+        bmiValue.textContent = "--";
+        bmiLabel.textContent = "Please enter valid height and weight.";
+        resultBox.classList.add("show");
+        return;
+      }
+      var meters = h / 100;
+      var bmi = w / (meters * meters);
+      bmiValue.textContent = bmi.toFixed(1);
+      bmiLabel.textContent = classify(bmi);
+      resultBox.classList.add("show");
+    });
+  })();
+</script>
+
+</body>
+</html>

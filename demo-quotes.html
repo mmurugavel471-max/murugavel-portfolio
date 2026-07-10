@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quote Generator — Demo Project</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .demo-wrap{ max-width:520px; margin:60px auto; padding:0 20px; }
+  .demo-back{ font-family:'IBM Plex Mono', monospace; font-size:0.8rem; display:inline-block; margin-bottom:20px; }
+  .quote-card{
+    background:var(--bg-raised);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:32px;
+    text-align:center;
+    box-shadow: 0 4px 20px rgba(46,155,240,0.08);
+  }
+  .quote-card h1{ font-size:1.3rem; margin-bottom:22px; }
+  #quoteText{
+    font-size:1.15rem;
+    line-height:1.6;
+    color:var(--ink);
+    min-height:90px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  #quoteAuthor{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.85rem;
+    color:var(--teal);
+    margin-top:10px;
+    margin-bottom:24px;
+  }
+  .quote-btn{
+    padding:11px 26px;
+    background:var(--amber);
+    color:#fff;
+    border:none;
+    border-radius:6px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.85rem;
+    cursor:pointer;
+  }
+  .quote-btn:hover{ background:var(--teal); }
+</style>
+</head>
+<body>
+
+<div class="grid-backdrop"></div>
+
+<div class="demo-wrap">
+  <a class="demo-back" href="projects.html">&larr; Back to projects</a>
+  <div class="quote-card">
+    <h1>Random Quote Generator</h1>
+    <div id="quoteText">Click the button for a quote.</div>
+    <div id="quoteAuthor"></div>
+    <button class="quote-btn" id="newQuoteBtn">New Quote</button>
+  </div>
+</div>
+
+<script>
+  (function () {
+    var quotes = [
+      { text: "Simplicity is the soul of efficiency.", author: "Austin Freeman" },
+      { text: "Code is like humor. When you have to explain it, it's bad.", author: "Cory House" },
+      { text: "First, solve the problem. Then, write the code.", author: "John Johnson" },
+      { text: "Programs must be written for people to read, and only incidentally for machines to execute.", author: "Harold Abelson" },
+      { text: "The best error message is the one that never shows up.", author: "Thomas Fuchs" },
+      { text: "Make it work, make it right, make it fast.", author: "Kent Beck" },
+      { text: "Talk is cheap. Show me the code.", author: "Linus Torvalds" },
+      { text: "Any fool can write code that a computer can understand. Good programmers write code that humans can understand.", author: "Martin Fowler" }
+    ];
+
+    var textEl = document.getElementById("quoteText");
+    var authorEl = document.getElementById("quoteAuthor");
+    var btn = document.getElementById("newQuoteBtn");
+    var lastIndex = -1;
+
+    function showQuote() {
+      var idx;
+      do {
+        idx = Math.floor(Math.random() * quotes.length);
+      } while (idx === lastIndex && quotes.length > 1);
+      lastIndex = idx;
+      textEl.textContent = "\u201C" + quotes[idx].text + "\u201D";
+      authorEl.textContent = "— " + quotes[idx].author;
+    }
+
+    btn.addEventListener("click", showQuote);
+    showQuote();
+  })();
+</script>
+
+</body>
+</html>

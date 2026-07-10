@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>To-Do List — Demo Project</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .demo-wrap{ max-width:480px; margin:60px auto; padding:0 20px; }
+  .demo-back{ font-family:'IBM Plex Mono', monospace; font-size:0.8rem; display:inline-block; margin-bottom:20px; }
+  .todo-card{
+    background:var(--bg-raised);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:26px;
+    box-shadow: 0 4px 20px rgba(46,155,240,0.08);
+  }
+  .todo-card h1{ font-size:1.4rem; margin-bottom:6px; }
+  .todo-card .sub{ color:var(--ink-dim); font-size:0.88rem; margin-bottom:20px; }
+  .todo-input-row{ display:flex; gap:8px; margin-bottom:18px; }
+  .todo-input-row input{
+    flex:1;
+    padding:10px 12px;
+    border:1px solid var(--line);
+    border-radius:6px;
+    font-family:'Poppins', sans-serif;
+    font-size:0.9rem;
+  }
+  .todo-input-row input:focus{ outline:2px solid var(--teal); outline-offset:1px; }
+  .todo-input-row button{
+    background:var(--amber);
+    color:#fff;
+    border:none;
+    padding:0 18px;
+    border-radius:6px;
+    cursor:pointer;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.82rem;
+  }
+  .todo-input-row button:hover{ background:var(--teal); }
+  #todoList{ list-style:none; display:flex; flex-direction:column; gap:8px; }
+  .todo-item{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:10px 12px;
+  }
+  .todo-item span{ flex:1; font-size:0.92rem; }
+  .todo-item.done span{ text-decoration:line-through; color:var(--ink-dim); }
+  .todo-item button{
+    background:none;
+    border:none;
+    color:var(--ink-dim);
+    cursor:pointer;
+    font-size:0.95rem;
+  }
+  .todo-item button:hover{ color:#D9534F; }
+  .todo-empty{ color:var(--ink-dim); font-size:0.88rem; text-align:center; padding:20px 0; }
+  .todo-footer{ margin-top:14px; font-family:'IBM Plex Mono', monospace; font-size:0.76rem; color:var(--ink-dim); }
+</style>
+</head>
+<body>
+
+<div class="grid-backdrop"></div>
+
+<div class="demo-wrap">
+  <a class="demo-back" href="projects.html">&larr; Back to projects</a>
+  <div class="todo-card">
+    <h1>To-Do List</h1>
+    <p class="sub">Client-side task manager — add, complete, and delete tasks. Saved locally in your browser.</p>
+    <div class="todo-input-row">
+      <input type="text" id="todoInput" placeholder="Add a new task..." autocomplete="off">
+      <button id="todoAddBtn">Add</button>
+    </div>
+    <ul id="todoList"></ul>
+    <p class="todo-footer" id="todoCount"></p>
+  </div>
+</div>
+
+<script>
+  (function () {
+    var STORAGE_KEY = "demo_todo_items";
+    var listEl = document.getElementById("todoList");
+    var inputEl = document.getElementById("todoInput");
+    var addBtn = document.getElementById("todoAddBtn");
+    var countEl = document.getElementById("todoCount");
+
+    function load() {
+      try {
+        return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+      } catch (e) {
+        return [];
+      }
+    }
+    function save(items) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+    }
+
+    var items = load();
+
+    function render() {
+      listEl.innerHTML = "";
+      if (items.length === 0) {
+        listEl.innerHTML = '<li class="todo-empty">No tasks yet — add one above.</li>';
+      }
+      items.forEach(function (item, idx) {
+        var li = document.createElement("li");
+        li.className = "todo-item" + (item.done ? " done" : "");
+        li.innerHTML =
+          '<input type="checkbox" ' + (item.done ? "checked" : "") + '>' +
+          "<span></span>" +
+          '<button aria-label="Delete task">&times;</button>';
+        li.querySelector("span").textContent = item.text;
+        li.querySelector("input").addEventListener("change", function () {
+          items[idx].done = !items[idx].done;
+          save(items);
+          render();
+        });
+        li.querySelector("button").addEventListener("click", function () {
+          items.splice(idx, 1);
+          save(items);
+          render();
+        });
+        listEl.appendChild(li);
+      });
+      var doneCount = items.filter(function (i) { return i.done; }).length;
+      countEl.textContent = items.length
+        ? doneCount + " of " + items.length + " completed"
+        : "";
+    }
+
+    function addTask() {
+      var text = inputEl.value.trim();
+      if (!text) return;
+      items.push({ text: text, done: false });
+      save(items);
+      inputEl.value = "";
+      render();
+    }
+
+    addBtn.addEventListener("click", addTask);
+    inputEl.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") addTask();
+    });
+
+    render();
+  })();
+</script>
+
+</body>
+</html>

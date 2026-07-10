@@ -1,0 +1,21 @@
+<svg viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Google Ads campaign preview">
+  <rect x="0" y="0" width="400" height="260" fill="#F1F8FE" rx="10"/>
+  <rect x="30" y="30" width="340" height="200" rx="8" fill="#FFFFFF" stroke="#D7E7F6" stroke-width="2"/>
+
+  <rect x="50" y="50" width="220" height="16" rx="4" fill="#F1F8FE" stroke="#D7E7F6"/>
+  <circle cx="325" cy="58" r="12" fill="#2E9BF0"/>
+  <path d="M320 58 h10 M325 53 v10" stroke="#FFFFFF" stroke-width="1.5"/>
+
+  <rect x="50" y="88" width="34" height="14" rx="3" fill="#E0A94D"/>
+  <text x="56" y="98" font-family="Poppins, sans-serif" font-size="9" fill="#FFFFFF" font-weight="600">Ad</text>
+  <rect x="90" y="90" width="120" height="8" rx="2" fill="#2E9BF0"/>
+
+  <rect x="50" y="108" width="280" height="8" rx="2" fill="#5B6B7A"/>
+  <rect x="50" y="122" width="240" height="8" rx="2" fill="#5B6B7A"/>
+
+  <rect x="50" y="150" width="90" height="26" rx="6" fill="#0B0F14"/>
+  <rect x="150" y="150" width="90" height="26" rx="6" fill="#FFFFFF" stroke="#D7E7F6"/>
+
+  <rect x="50" y="190" width="150" height="8" rx="2" fill="#B7C4D0"/>
+  <rect x="50" y="204" width="100" height="8" rx="2" fill="#B7C4D0"/>
+</svg>
